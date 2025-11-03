@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Links Hub</title>
+    <style>
+        :root {
+            --bg: #0d1117;
+            --card: #161b22;
+            --text: #f0f6fc;
+            --accent: #58a6ff;
+            --hover: #1f6feb;
+        }
+
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        h1 {
+            font-size: 3.5rem;
+            background: linear-gradient(90deg, #58a6ff, #c9d1d9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        p.subtitle {
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+        .search {
+            width: 100%;
+            max-width: 500px;
+            margin: 2rem auto;
+            position: relative;
+        }
+        #searchInput {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border: 2px solid #30363d;
+            border-radius: 50px;
+            background: var(--card);
+            color: var(--text);
+            font-size: 1.1rem;
+            outline: none;
+            transition: all 0.3s;
+        }
+        #searchInput:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px rgba(88,166,255,0.2);
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .category {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid #30363d;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .category:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        .category h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.5rem;
+        }
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .link {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            background: rgba(88,166,255,0.1);
+            border-radius: 10px;
+            transition: all 0.2s;
+            text-decoration: none;
+            color: var(--text);
+        }
+        .link:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateX(8px);
+        }
+        .link .favicon {
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+            border-radius: 4px;
+        }
+        .link span {
+            flex: 1;
+            font-weight: 500;
+        }
+        .link .shortcut {
+            background: rgba(255,255,255,0.1);
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            opacity: 0.8;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 2rem;
+            opacity: 0.6;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.5rem; }
+            .categories { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>My Links</h1>
+            <p class="subtitle">One-click access to everything I love</p>
+        </header>
+
+        <div class="search">
+            <input type="text" id="searchInput" placeholder="🔍 Search all links..." autocomplete="off">
+        </div>
+
+        <div class="categories">
+            <!-- DEVELOPMENT -->
+            <div class="category">
+                <h2>💻 Development</h2>
+                <div class="links">
+                    <a href="https://github.com" class="link" target="_blank">
+                        <img src="https://github.com/favicon.ico" class="favicon" alt="">
+                        <span>GitHub</span>
+                        <kbd class="shortcut">G</kbd>
+                    </a>
+                    <a href="https://stackoverflow.com" class="link" target="_blank">
+                        <img src="https://stackoverflow.com/favicon.ico" class="favicon" alt="">
+                        <span>Stack Overflow</span>
+                        <kbd class="shortcut">S</kbd>
+                    </a>
+                    <a href="https://dev.to" class="link" target="_blank">
+                        <img src="https://dev.to/favicon.ico" class="favicon" alt="">
+                        <span>Dev.to</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- DESIGN -->
+            <div class="category">
+                <h2>🎨 Design</h2>
+                <div class="links">
+                    <a href="https://dribbble.com" class="link" target="_blank">
+                        <img src="https://dribbble.com/favicon.ico" class="favicon" alt="">
+                        <span>Dribbble</span>
+                    </a>
+                    <a href="https://figma.com" class="link" target="_blank">
+                        <img src="https://figma.com/favicon.ico" class="favicon" alt="">
+                        <span>Figma</span>
+                        <kbd class="shortcut">F</kbd>
+                    </a>
+                    <a href="https://coolors.co" class="link" target="_blank">
+                        <img src="https://coolors.co/favicon.ico" class="favicon" alt="">
+                        <span>Coolors</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- PRODUCTIVITY -->
+            <div class="category">
+                <h2>🚀 Productivity</h2>
+                <div class="links">
+                    <a href="https://notion.so" class="link" target="_blank">
+                        <img src="https://notion.so/favicon.ico" class="favicon" alt="">
+                        <span>Notion</span>
+                        <kbd class="shortcut">N</kbd>
+                    </a>
+                    <a href="https://calendar.google.com" class="link" target="_blank">
+                        <img src="https://calendar.google.com/favicon.ico" class="favicon" alt="">
+                        <span>Google Calendar</span>
+                    </a>
+                    <a href="https://todoist.com" class="link" target="_blank">
+                        <img src="https://todoist.com/favicon.ico" class="favicon" alt="">
+                        <span>Todoist</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- SOCIAL -->
+            <div class="category">
+                <h2>🌐 Social</h2>
+                <div class="links">
+                    <a href="https://twitter.com" class="link" target="_blank">
+                        <img src="https://twitter.com/favicon.ico" class="favicon" alt="">
+                        <span>Twitter / X</span>
+                    </a>
+                    <a href="https://linkedin.com" class="link" target="_blank">
+                        <img src="https://linkedin.com/favicon.ico" class="favicon" alt="">
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://discord.com" class="link" target="_blank">
+                        <img src="https://discord.com/favicon.ico" class="favicon" alt="">
+                        <span>Discord</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>✨ Made with ❤️ • Press any shortcut key to jump • Last updated Nov 2025</p>
+        </footer>
+    </div>
+
+    <script>
+        // Live search
+        const searchInput = document.getElementById('searchInput');
+        const links = document.querySelectorAll('.link');
+
+        searchInput.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            links.forEach(link => {
+                const text = link.textContent.toLowerCase();
+                link.style.display = text.includes(term) ? 'flex' : 'none';
+            });
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'g' && !e.ctrlKey && !e.metaKey) {
+                document.querySelector('a[href*="github"]').click();
+            }
+            if (e.key === 'f') {
+                document.querySelector('a[href*="figma"]').click();
+            }
+            if (e.key === 'n') {
+                document.querySelector('a[href*="notion"]').click();
+            }
+        });
+
+        // Focus search on /
+        document.addEventListener('keydown', (e) => {
+            if (e.key === '/' && document.activeElement !== searchInput) {
+                e.preventDefault();
+                searchInput.focus();
+            }
+        });
+    </script>
+</body>
+</html>
